@@ -69,3 +69,6 @@ tags
 
 # vscode server
 .vscode
+
+# outputs
+*-dhcp-static-config.txt
