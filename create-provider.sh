@@ -52,7 +52,7 @@ sleeping $provider $routers
 
 ## update and reboot
 echo "System Upgrade"
-ansible-playbook -i inventories/inventory${provider}.yml vyos_update.yml -e "vyos_version=$(ls -t vyos-iso/ | head -n 1 | sed -e 's/^vyos-//' | sed -e 's/-amd.*$//')" $ansible_limit
+ansible-playbook -i inventories/inventory${provider}.yml vyos_update.yml -e "vyos_version=$(ls -t vyos-iso/vyos* | head -n 1 | sed -e 's/^vyos-iso\/vyos-//' | sed -e 's/-amd.*$//')" $ansible_limit
 
 ## sleeping
 echo "Warte auf zweiten Start"
