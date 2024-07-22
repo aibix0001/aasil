@@ -1,4 +1,4 @@
-### aasil - aibix' awesome setup (for) ISP learning
+# aasil - aibix' awesome setup (for) ISP learning
 Dies ist eine Sammlung von Scripten, die dazu geeignet sind auf dem Proxmox PVE eine Anzahl miteinander vernetzter vyos-VMs zu erstellen.
 Diese sind zum Beispiel dazu geeignet sich mit ISP Routing zu beschäftigen.
 
@@ -21,17 +21,17 @@ Die derzeit aktuelle Version von Paramiko hat eine lästige Warnung dass 3DES ve
 
 ## Folgende Programme sind beteiligt
 - create-provider.sh
-    # Das Programm hat drei erforderliche und einen optionalen Parameter:
+    ### Das Programm hat drei erforderliche und einen optionalen Parameter:
     - node: eine Nummer die den node (bei einem möglichen cluster-setup) beziffert
     - provider: der provider (eine numer, vorgesehen sind max 3 ISP/provider, da sonst die automatishe Zuordnung von VLANs nicht mehr funktioniert)
     - router: wieviele Router sollen erstellt werden (derzeit am besten 8 einstellen, andere Anzahl ist möglich, braucht dann aber Anpassung)
     - ansible_limit. zb. "-l p1r1v" um nur p1r1v zu bearbeiten. Bitte *mit* den "" angeben.
 
-    # Sowie ein paar weitere Anforderungen
+    ### Sowie ein paar weitere Anforderungen
     - Mind. eine vyos ISO (bestenfalls neuer als die qcow) im Ordner vyos-iso, damit das Update während der Ausführung funktioniert.
     - eine seed.iso, siehe Ordner seed-iso
 
-    # Weiterhin werden nach dem erstellen der VMs einige ansible-Scripte ausgeführt:
+    ### Weiterhin werden nach dem erstellen der VMs einige ansible-Scripte ausgeführt:
     - vyos_setup.yml (initiales Setup, Hostname, mgmt-vrf, SSH)
     - vyos_finish.yml (erforderlich weil vyos_setup.yml derzeit beim aktivieren des VRF abbricht)
     - vyos_update.yml -> selbsterklärend
@@ -48,4 +48,4 @@ Die derzeit aktuelle Version von Paramiko hat eine lästige Warnung dass 3DES ve
         - Es sollte immer ein Gitter ergeben in dessen Spalten oder Zeilen keine Router fehlen, es sollte also immer rechteckig aussehen
         - Funktionierende Beipiele wären zb. 4 2 (für 2x2 Router) oder 6 2 (für 3x2 Router) oder 9 3 (für 3x3 Router) usw.
 
-## Zur weiteren Einführung kommt ein youtube-Video das dann hier verlinkt wird.
+### Zur weiteren Einführung kommt ein youtube-Video das dann hier verlinkt wird.
