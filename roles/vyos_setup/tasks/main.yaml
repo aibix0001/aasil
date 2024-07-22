@@ -1,0 +1,29 @@
+---
+  - name: set_hostname
+    vyos_config:
+      lines:
+        - set system host-name '{{ ansible_hostname }}'
+      save: true
+    tags: hostname
+    when: os == "vyos"
+
+  - name: set_vrf-bind-to-all
+    vyos_config:
+      lines:
+        - set vrf name mgmt table 1020
+        - set vrf bind-to-all
+      save: true
+    tags: vrf
+    when: os == "vyos"
+
+  - name: set_ssh-to-vrf
+    vyos_config:
+      lines:
+        - set interface ethernet eth0 vrf mgmt
+        - set service ssh vrf mgmt
+        - set service ssh port 22
+      save: true
+    tags: ssh
+    when: os == "vyos"
+    timeout: 5
+

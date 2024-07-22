@@ -1,0 +1,11 @@
+#cloud-config
+vyos_config_commands:
+  - set vrf name mgmt table 1020
+  - set system host-name 'vyos-init'
+  - set interfaces ethernet eth0 vrf mgmt
+  - set service ssh vrf mgmt
+  - set service ssh port 22
+  - set service ntp server 1.pool.ntp.org
+  - set service ntp server 2.pool.ntp.org
+  - set system login user vyos authentication public-keys aibix@pve key 'AAAAC3NzaC1lZDI1NTE5AAAAINaS0Jnd22MMvRMUyBlndxv7VzYWXfl7PbnpeUpNBtlL'
+  - set system login user vyos authentication public-keys aibix@pve type 'ssh-ed25519'

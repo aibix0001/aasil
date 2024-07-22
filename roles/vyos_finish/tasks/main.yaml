@@ -1,0 +1,17 @@
+---
+  - name: save_ssh-to-vrf
+    vyos_config:
+      save: true
+    tags: ssh
+    when: os == "vyos"
+    timeout: 5
+    ignore_errors: true
+
+  - name: delete_vrf-bind-to-all
+    vyos_config:
+      lines:
+        - delete vrf bind-to-all
+      save: true
+    tags: vrf2
+    when: os == "vyos"
+

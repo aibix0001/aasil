@@ -1,0 +1,52 @@
+router:
+  vars:
+    ansible_user: "vyos"
+    ansible_network_os: vyos.vyos.vyos
+
+  hosts:
+    p3r1v:
+      os: "vyos"
+      ansible_host: 10.20.30.31
+      ansible_hostname: "p3r1v"
+
+
+    p3r2v:
+      os: "vyos"
+      ansible_host: 10.20.30.32
+      ansible_hostname: "p3r2v"
+
+
+    p3r3v:
+      os: "vyos"
+      ansible_host: 10.20.30.33
+      ansible_hostname: "p3r3v"
+
+
+    p3r4v:
+      os: "vyos"
+      ansible_host: 10.20.30.34
+      ansible_hostname: "p3r4v"
+
+
+    p3r5v:
+      os: "vyos"
+      ansible_host: 10.20.30.35
+      ansible_hostname: "p3r5v"
+
+
+    p3r6v:
+      os: "vyos"
+      ansible_host: 10.20.30.36
+      ansible_hostname: "p3r6v"
+
+
+    p3r7v:
+      os: "vyos"
+      ansible_host: 10.20.30.37
+      ansible_hostname: "p3r7v"
+
+
+    p3r8v:
+      os: "vyos"
+      ansible_host: 10.20.30.38
+      ansible_hostname: "p3r8v"
