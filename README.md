@@ -21,17 +21,17 @@ Die derzeit aktuelle Version von Paramiko hat eine lästige Warnung dass 3DES ve
 
 ## Folgende Programme sind beteiligt
 - create-provider.sh
-    Das Programm hat drei erforderliche und einen optionalen Parameter:
+    # Das Programm hat drei erforderliche und einen optionalen Parameter:
     - node: eine Nummer die den node (bei einem möglichen cluster-setup) beziffert
     - provider: der provider (eine numer, vorgesehen sind max 3 ISP/provider, da sonst die automatishe Zuordnung von VLANs nicht mehr funktioniert)
     - router: wieviele Router sollen erstellt werden (derzeit am besten 8 einstellen, andere Anzahl ist möglich, braucht dann aber Anpassung)
     - ansible_limit. zb. "-l p1r1v" um nur p1r1v zu bearbeiten. Bitte *mit* den "" angeben.
 
-    Sowie ein paar weitere Anforderungen
+    # Sowie ein paar weitere Anforderungen
     - Mind. eine vyos ISO (bestenfalls neuer als die qcow) im Ordner vyos-iso, damit das Update während der Ausführung funktioniert.
     - eine seed.iso, siehe Ordner seed-iso
 
-    Weiterhin werden nach dem erstellen der VMs einige ansible-Scripte ausgeführt:
+    # Weiterhin werden nach dem erstellen der VMs einige ansible-Scripte ausgeführt:
     - vyos_setup.yml (initiales Setup, Hostname, mgmt-vrf, SSH)
     - vyos_finish.yml (erforderlich weil vyos_setup.yml derzeit beim aktivieren des VRF abbricht)
     - vyos_update.yml -> selbsterklärend
