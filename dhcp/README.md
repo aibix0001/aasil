@@ -1,4 +1,4 @@
-### DHCP-configs
+# DHCP-configs
 Hier finden sich nach dem Ablauf der Scripte die Einstellungen für die IP-Zuweisung mit isc oder kea dhcp.
 
 ## fixme
