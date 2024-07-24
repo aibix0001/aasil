@@ -35,7 +35,7 @@ then
 		then
 		    qm set $vmid --net${net} virtio,bridge=vmbr0,mtu=1500,macaddr=00:${node}4:18:F${provider}:`printf '%02d' $router`:`printf '%02d' $net`
 		else
-			vlanid=$(./vlans3.sh 2 2 ${router} ${net} ${provider})
+			vlanid=$(./vlans3.sh 8 2 ${router} ${net} ${provider})
 
 			# check ob vlanid länger als 3 zeichen ist
 			# (dann ist es ein "externes" interface und bekommt standard mtu)
