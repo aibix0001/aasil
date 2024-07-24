@@ -9,3 +9,5 @@ vyos_config_commands:
   - set service ntp server 2.pool.ntp.org
   - set system login user vyos authentication public-keys aibix@pve key 'AAAAC3NzaC1lZDI1NTE5AAAAINaS0Jnd22MMvRMUyBlndxv7VzYWXfl7PbnpeUpNBtlL'
   - set system login user vyos authentication public-keys aibix@pve type 'ssh-ed25519'
+  - set system login user vyos authentication public-keys aibix@AUTOMATION key 'AAAAC3NzaC1lZDI1NTE5AAAAIHcH6rEhepn76QcVDpRYc/s4i0FIHdFXejYoq4dGinKu'
+  - set system login user vyos authentication public-keys aibix@AUTOMATION type 'ssh-ed25519'
