@@ -26,10 +26,20 @@ sleeping ()
 {
     for r in $(seq 1 $2)
     do
-	while true
-	do
-	    ansible p$1r${r}v -m ping -u vyos | grep -q pong && break
-	done
+        runs = 1
+        while true
+        do
+            ansible p$1r${r}v -m ping -u vyos | grep -q pong && break
+            sleep 5
+            if [[ ${runs} -eq 20 ]]
+            # VM neu starten falls sie nicht funktioniert, kann helfen bei langsameren pve
+            then
+                echo "VM ${node}0${provider}00${r} reagiert nicht, starte neu"
+                sudo qm reset ${node}0${provider}00${r}
+                runs = 1
+            fi
+            ((runs++))
+        done
 	echo "Router ${r} in Betrieb"
     done
 }

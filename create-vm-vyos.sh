@@ -22,7 +22,7 @@ then
 	create)
 	    vmid=${node}0${provider}0`printf '%02d' $router`
 	    ## Create VM, import disk and define boot order
-	    qm create $vmid --name "p${provider}r${router}v" --ostype l26 --memory 2048 --balloon 2048 --cpu cputype=host --cores 2 --scsihw virtio-scsi-single --net0 virtio,bridge=MGMT,mtu=1500,macaddr="${mgmtmac}"
+	    qm create $vmid --name "p${provider}r${router}v" --ostype l26 --memory 2048 --balloon 2048 --cpu cputype=host --cores 2 --scsihw virtio-scsi-single --net0 virtio,bridge=ABXMGMTN,mtu=1500,macaddr="${mgmtmac}"
 	    qm importdisk $vmid vyos-qcow/vyos-1.5.0-cloud-init-10G-qemu.qcow2 local-zfs
 	    qm set $vmid --virtio0 local-zfs:vm-$vmid-disk-0,iothread=1
 	    qm set $vmid --boot order=virtio0
@@ -46,7 +46,7 @@ then
 				newmtu=1500
 			fi
 
-			qm set $vmid --net${net} virtio,bridge=P${provider},mtu=${newmtu},tag=${vlanid},macaddr=00:${node}4:18:F${provider}:`printf '%02d' $router`:`printf '%02d' $net`
+			qm set $vmid --net${net} virtio,bridge=ABXP${provider}VXN,mtu=${newmtu},tag=${vlanid},macaddr=00:${node}4:18:F${provider}:`printf '%02d' $router`:`printf '%02d' $net`
 		fi
 	    done
 	    ## Import seed.iso for cloud init
