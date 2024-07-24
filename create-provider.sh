@@ -17,8 +17,9 @@ provider=$2
 ## aus wievielen Routern soll das Gitter bestehen?
 ## Vorsicht! Das ansible inventory muss dazu passen!
 routers=$3
+rows=$4
 ## nur bestimmte VMs bearbeiten
-ansible_limit=$4
+ansible_limit=$5
 
 
 ## Funktion zum warten auf reboots nach Installation, Update und Config
@@ -26,17 +27,17 @@ sleeping ()
 {
     for r in $(seq 1 $2)
     do
-        runs = 1
+        runs=1
         while true
         do
             ansible p$1r${r}v -m ping -u vyos | grep -q pong && break
-            sleep 5
-            if [[ ${runs} -eq 20 ]]
+            echo ${runs}
+            if [[ ${runs} -eq 24 ]]
             # VM neu starten falls sie nicht funktioniert, kann helfen bei langsameren pve
             then
                 echo "VM ${node}0${provider}00${r} reagiert nicht, starte neu"
                 sudo qm reset ${node}0${provider}00${r}
-                runs = 1
+                runs=0
             fi
             ((runs++))
         done
