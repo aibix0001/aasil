@@ -17,9 +17,8 @@ provider=$2
 ## aus wievielen Routern soll das Gitter bestehen?
 ## Vorsicht! Das ansible inventory muss dazu passen!
 routers=$3
-rows=$4
 ## nur bestimmte VMs bearbeiten
-ansible_limit=$5
+ansible_limit=$4
 
 
 ## Funktion zum warten auf reboots nach Installation, Update und Config
